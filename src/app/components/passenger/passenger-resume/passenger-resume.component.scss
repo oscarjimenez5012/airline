@@ -1,0 +1,310 @@
+@import "../../../../assets/scss/breakpoints";
+
+
+
+.toast__container {
+	margin-bottom: 2em;
+}
+
+.toast__button {
+	float: right; 
+	position: relative; 
+	right:0;
+}
+
+
+.toast {
+  text-align:left;
+    padding: 21px 0;
+    background-color:#fff;
+    border-radius:4px;
+    max-width: 500px;
+    top: 0px;
+    position:relative;
+    box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.2);
+}
+
+
+.toast:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+  border-top-left-radius:4px;
+  border-bottom-left-radius: 4px;
+
+}
+
+.toast__icon{
+  position:absolute;
+  top:50%;
+  left:22px;
+  transform:translateY(-50%);
+  width:14px;
+  height:14px;
+  padding: 7px;
+  border-radius:50%;
+  display:inline-block;
+}
+
+.toast__type {
+  color: #3e3e3e;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.toast__message {
+    font-size: 14px;
+    margin-top: 0;
+  margin-bottom: 0;
+    color: #878787;
+}
+
+.toast__content{
+  padding-left:70px;
+  padding-right:60px;
+}
+
+.toast__close {
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    width: 14px;
+    cursor:pointer;
+    height: 14px;
+  fill:#878787;
+    transform: translateY(-50%);
+}
+
+.toast--green .toast__icon{
+  background-color:#2BDE3F;
+}
+
+.toast--green:before{
+  background-color:#2BDE3F;
+}
+
+.toast--blue .toast__icon{
+  background-color:#1D72F3;
+}
+
+.toast--blue:before{
+  background-color:#1D72F3;
+}
+
+.toast--yellow .toast__icon{
+  background-color:#FFC007;
+}
+
+.toast--yellow:before{
+  background-color:#FFC007;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.form__icon--danger {
+	background-color: gray;
+    padding: .6rem .8rem .5rem;
+    font-size: 1.5em;
+    height: 42px;
+    margin-top: 4px;
+    color: white;
+    margin: 3px;
+    display: inline-block;
+}
+
+.form__icon--info {
+	background-color: gray;
+    padding: .6rem .8rem .5rem;
+    font-size: 1.5em;
+    height: 42px;
+    margin-top: 4px;
+    color: white;
+    margin: 3px;
+    display: inline-block;
+}
+
+
+.passenger-resume {
+	    .passenger-resume__container {
+			tr:nth-child(even) {
+		    	background-color: #dddddd;
+			}
+
+			&.xsmall-view, &.small-view, &.medium-view {
+				display: block;
+				.fam_city_wrap {
+				    width: 100%;
+				    padding: 29px 30px 26px 60px;
+				    position: relative;
+				    background-color: #fff;
+				    border-bottom: 1px solid #b09f9f;
+				    -webkit-box-sizing: border-box;
+				    -moz-box-sizing: border-box;
+				    box-sizing: border-box;
+				    .number {
+					    position: absolute;
+					    left: 0px;
+					    top: 30px;
+					    margin-left: -10px;
+
+					    span.text {
+						    -moz-border-radius: 3px;
+						    -webkit-border-radius: 3px;
+						    background-color: #0089e2;
+						    border-radius: 3px;
+						    color: #fffefe;
+						    display: block;
+						    font-size: 12px;
+						    font-weight: 500;
+						    height: 21px;
+						    letter-spacing: 1px;
+						    line-height: 21px;
+						    position: relative;
+						    text-align: center;
+						    width: 37px;
+						    z-index: 99;
+						}
+						span.after {
+						    display: block;
+						    position: relative;
+						    width: 10px;
+						    height: 10px;
+						    overflow: hidden;
+						    &:before {
+						    	content: '';
+							    position: absolute;
+							    top: 0px;
+							    margin-top: -8px;
+							    margin-left: 3px;
+							    left: 0px;
+							    width: 12px;
+							    height: 12px;
+							    background-color: #000;
+							    opacity: .3;
+							    z-index: 5;
+							    -webkit-transform: rotate(35deg);
+							    -moz-transform: rotate(35deg);
+							    -ms-transform: rotate(35deg);
+							    transform: rotate(35deg);
+						    }
+						    &:after {
+						    	content: '';
+							    position: absolute;
+							    top: 0px;
+							    margin-top: -8px;
+							    margin-left: 3px;
+							    left: 0px;
+							    width: 12px;
+							    height: 12px;
+							    z-index: 1;
+							    -webkit-transform: rotate(35deg);
+							    -moz-transform: rotate(35deg);
+							    -ms-transform: rotate(35deg);
+							    transform: rotate(35deg);
+						    }
+					    }
+					}
+					.fam_city_content {
+					    width: 100%;
+					    position: relative;
+					    .title_holder {
+						    h3 {
+							    margin: 0px;
+							    font-size: 19px;
+							    letter-spacing: 0px;
+							    line-height: 1;
+							    margin-bottom: 4px;
+							    -webkit-transition: all .5s ease;
+							    -moz-transition: all .5s ease;
+							    -ms-transition: all .5s ease;
+							    -o-transition: all .5s ease;
+							    transition: all .5s ease;
+							}
+					    }
+					}
+				}
+			}
+			
+
+			&.large-view {
+				display: none;
+				width: 100%;
+				border-collapse: collapse;
+				tr, td, th {
+				    border: 1px solid #111;
+				    text-align: left;
+				    padding: 8px;
+				}
+
+				th {
+				    font-size: 12px;
+				    color: #fff;
+				    line-height: 1.4;
+				    text-transform: uppercase;
+				    background-color: #fa4251;
+				}
+			}
+			@media screen and (min-width: $medium-min-breakpoint) and (max-width: $medium-max-breakpoint) {
+				&.xsmall-view, &.small-view, &.large-view {
+					display: none;
+				}
+
+				&.medium-view {
+					display: block;
+				}
+			}
+
+			@media screen and (min-width: $large-min-breakpoint) {
+				&.xsmall-view, &.small-view, &.medium-view {
+					display: none;
+				}
+
+				&.large-view {
+					display: block;
+				}
+			}
+		}
+		& .no-passenger {
+			display: flex;
+		    justify-content: center;
+		    height: 50vh;
+			.passenger-resume__container {
+				background-color: #f4516b;
+				color: #FFF;
+
+
+				.passenger-resume__head {
+					padding: 1em;
+					position: relative;
+					&:after {
+						content:"";
+					    position: absolute;
+					    bottom: 0;
+					    left: 0;
+					    right: 0;
+					    height: 0.5em;
+					    border-top: 1px solid #FFF;
+					    margin: auto;
+					}
+				}
+				.passenger-resume__body {
+					padding: 1em;
+				}
+			}
+		}
+		
+	}

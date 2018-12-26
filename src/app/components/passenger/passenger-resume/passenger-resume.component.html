@@ -1,0 +1,106 @@
+<div *ngIf="(messages | async)?.length !== 0" class=" alert alert-success " role="alert ">
+	<div class="toast__container" *ngFor="let message of messages | async; let i=index " >
+		<div class="toast__cell">
+			<div [ngSwitch]="message.type">
+			  <article *ngSwitchCase="'success'">
+			  	<div class="toast toast--green">
+				  <div class="toast__icon"></div>
+				  <div class="toast__content">
+				    <p class="toast__type">{{message.type | uppercase}}</p>
+				    <p class="toast__message">{{message.Message}}</p>
+				  </div>
+				  <div class="toast__close">
+		            <fa class="toast__button" style="" name="close" (click)= "deleteMessage(i)"></fa>
+				  </div>
+				</div>
+			  </article>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+<div class="passenger-resume">
+	<div *ngIf="(passengers$ | async)?.length !== 0; else elseBlock">
+		<table class="passenger-resume__container large-view">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Date Of Birth</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Actions</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						oscar Fernando
+					</td>
+					<td>Jimenez Prieto</td>
+					<td>19 / 05 / 1990</td>
+					<td>oscar.5012@gmail.com</td>
+					<td>+573204809577</td>
+					<td>
+						<div class="actions">
+		            		<fa class="form__icon--info" style="background-color: red;" name="trash"></fa>
+						</div>
+					</td>
+				</tr>
+				<tr *ngFor="let passenger of passengers$ | async; let i = index">
+					<td>{{passenger.firstName}}</td>
+					<td>{{passenger.lastName}}</td>
+					<td>{{passenger.dateOfBirth}}</td>
+					<td>{{passenger.email}}</td>
+					<td>{{passenger.phoneNumber}}</td>
+					<td>
+						<div class="actions">
+		            		<fa class="form__icon--info" style="background-color: red;" name="trash" (click)="removePassenger(i)"></fa><span>Eliminar</span>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="passenger-resume__container xsmall-view small-view medium-view">
+			<div class="fam_city_wrap" *ngFor="let passenger of passengers$ | async; let i = index">
+				<div class="number">
+					<span class="text">{{i+1}}</span>
+					<span class="after"></span>
+				</div>
+				<div class="fam_city_content">
+					<div class="title_holder">
+						<div><span class="medium-view">First Name: </span><h3>{{passenger.firstName}}</h3></div>
+						<div><span class="medium-view">Last Name: </span><span>{{passenger.lastName}}</span></div>
+						<div><span class="medium-view">Date of Birth: </span><span>{{passenger.dateOfBirth}}</span></div>
+						<div><span class="medium-view">Email: </span><span><a href="mailto:{{passenger.email}}">{{passenger.email}}</a></span></div>
+						<div><span class="medium-view">Phone Number: </span><span>{{passenger.phoneNumber}}</span></div>
+					</div>
+					<div class="arrow">
+						<i class="xcon-angle-right"></i>
+					</div>
+				</div>
+				<div class="hidden_img">
+				</div>
+			</div>
+		</div>
+	</div>
+	<ng-template #elseBlock>
+		<div class="no-passenger">
+			<div class="passenger-resume">
+				<div class="passenger-resume__container">
+					<div class="passenger-resume__head">
+						<h2>No ha registrado Pasajeros</h2>
+					</div>
+					<div class="passenger-resume__body">
+						<p>Lo Sentimos! aun no ha registrado ningun pasajero para su viaje.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ng-template>
+</div>

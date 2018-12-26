@@ -1,0 +1,67 @@
+@import "../../../assets/scss/breakpoints";
+
+
+.passenger-page {
+	display: grid;
+	grid-template-columns:  [start passenger-form-start passenger-resume-start] 1fr 
+							[passenger-form-end passenger-resume-end end];
+	grid-gap: 1.5rem;	
+
+	.passenger-page__item1 {
+		margin: 2em;
+	}
+
+	.passenger-page__item2 {
+		margin: 2em;
+	}
+
+	@media screen and (min-width: $small-min-breakpoint) and (max-width: $small-max-breakpoint) {
+		display: grid;
+		grid-template-columns: [start passenger-form-start] minmax(400px, 1fr) 
+							[passenger-form-end passenger-resume-start] 1fr
+							[passenger-resume-end end];
+		grid-gap: 1.5rem;	
+
+		.passenger-page__item1 {
+			margin: 2em;
+		}
+
+		.passenger-page__item2 {
+			margin: 2em;
+		}
+	}
+
+
+	@media screen and (min-width: $medium-min-breakpoint) and (max-width: $medium-max-breakpoint) {
+		display: grid;
+		grid-template-columns: [start passenger-form-start] 1fr 
+							[passenger-form-end passenger-resume-start] 1fr
+							[passenger-resume-end end];
+		grid-gap: 1.5rem;	
+
+		.passenger-page__item1 {
+			margin: 2em;
+		}
+
+		.passenger-page__item2 {
+			margin: 2em;
+		}
+	}
+
+	@media screen and (min-width: $large-min-breakpoint) {
+		display: grid;
+		grid-template-columns: [start passenger-form-start] 1fr 
+							[passenger-form-end passenger-resume-start] 2fr
+							[passenger-resume-end end];
+		grid-gap: 1.5rem;	
+
+		.passenger-page__item1 {
+			margin: 2em;
+		}
+
+		.passenger-page__item2 {
+			margin: 2em;
+		}
+	}
+}
+

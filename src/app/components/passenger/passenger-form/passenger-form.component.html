@@ -1,0 +1,122 @@
+<div class="passenger">
+	<h1 class="passenger__heading">Traveler information</h1>
+	<form [formGroup]="passengerForm" class="passenger__form">
+	  
+	    <div class="form__control">
+	        <label class="form__label" for="firstName">First Name</label>
+	        <div class="form__input--container">
+		        <input #firstName [class.is-invalid]="passengerForm.get('firstName').invalid &&
+		        passengerForm.get('firstName').touched" 
+		        formControlName="firstName" 
+		        type="text" 
+		        placeholder="Enter your First Name"
+		        class="form__input" 
+		        id="firstName">
+		        <fa class="form__icon" name="fas fa-user"></fa>
+		        <div *ngIf="passengerForm.get('firstName').invalid &&
+				        passengerForm.get('firstName').touched" class="required-field">
+				        <span *ngIf="passengerForm.get('firstName').errors?.required" >First Name is Required</span>
+			        </div>
+		    </div>
+	    </div>
+	    <div class="form__control">
+	            <label class="form__label" for="lastName">Last Name</label>
+	            <div class="form__input--container">
+		            <input #lastName [class.is-invalid]="passengerForm.get('lastName').invalid &&
+		        passengerForm.get('lastName').touched" 
+		        formControlName="lastName" 
+		        type="text" 
+		        placeholder="Enter your Last Name"
+		        class="form__input" 
+		        id="lastName" />
+    		        <fa class="form__icon" name="far fa-user"></fa>
+		            <div *ngIf="passengerForm.get('lastName').invalid &&
+				        passengerForm.get('lastName').touched" class="required-field">
+				        <span *ngIf="passengerForm.get('lastName').errors?.required" >Last Name is Required</span>
+			        </div>
+		        </div>
+	        </div>
+	        
+	    <div class="form__control">
+	            <label class="form__label" for="dateOfBirth">Date of Birth</label>
+	            <div class="form__input--container">
+		            <input #dateOfBirth [class.is-invalid]="passengerForm.get('dateOfBirth').invalid &&
+		        passengerForm.get('dateOfBirth').touched" 
+		        formControlName="dateOfBirth" 
+		        type="date" 
+		        placeholder="Enter your date of birth" 
+		        class="form__input" 
+		        id="dateOfBirth" >
+		            <fa class="form__icon" name="calendar"></fa>
+		            <div *ngIf="passengerForm.get('dateOfBirth').invalid &&
+				        passengerForm.get('dateOfBirth').touched" class="required-field">
+				        <span *ngIf="passengerForm.get('dateOfBirth').errors?.required" >Date of birth is Required</span>
+			        </div>
+		        </div>
+        </div>
+        <div class="form__control">
+	            <label class="form__label" for="email">Email</label>
+	            <div class="form__input--container">
+
+		            <input #email [class.is-invalid]="passengerForm.get('email').invalid &&
+		        passengerForm.get('email').touched" 
+		        formControlName="email" 
+		        type="email" 
+		        placeholder="Enter your name" 
+		        class="form__input" 
+		        id="email" >
+		            <fa class="form__icon" name="envelope"></fa>
+		            <div *ngIf="passengerForm.get('email').invalid &&
+				        passengerForm.get('email').touched" class="required-field">
+				        <span *ngIf="passengerForm.get('email').errors?.required" >Email is Required</span>
+				        <span *ngIf="passengerForm.get('email').errors?.email" >Must be a valid Email</span>
+
+			        </div>
+		        </div>
+        </div>
+        <div #phoneNumber formGroupName="phoneNumber" class="form__control form__group">
+        	<div class="form__item--inline">
+	            <label class="form__label" for="country">Country</label>
+	            <div class="form__input--container">
+	            	<select #country 
+	            	formControlName="country" 
+	            	class="form__input form__input--country" 
+	            	id="country">
+			            <option *ngFor="let item of countries$" [value]="item.phone_code" [ngValue]="item.phone_code">{{item.name}}</option>
+			        </select>
+		            <fa class="form__icon" name="flag"></fa>
+		            <div *ngIf="passengerForm.get('phoneNumber.country').invalid &&
+				        passengerForm.get('phoneNumber.country').touched" class="required-field">
+				        <span *ngIf="passengerForm.get('phoneNumber.country').errors?.required" >Country is Required</span>
+			        </div>
+		        </div>
+            </div>
+        	<div class="form__item--inline">
+	            <label class="form__label" for="phone">Phone</label>
+	            <div class="form__input--container">
+		            <input #phone [class.is-invalid]="passengerForm.get('phoneNumber.phone').invalid &&
+		        passengerForm.get('phoneNumber.phone').touched" 
+		        formControlName="phone" 
+		        type="number" 
+		        placeholder="Your Phone" 
+		        class="form__input" 
+		        id="phone" >
+		            <fa class="form__icon" name="phone"></fa>
+		            <div *ngIf="passengerForm.get('phoneNumber.phone').invalid &&
+				        passengerForm.get('phoneNumber.phone').touched" class="required-field">
+				        <span *ngIf="passengerForm.get('phoneNumber.phone').errors?.required" >Phone is Required</span>
+			        </div>
+        		</div>
+            </div> 
+        </div>
+	    <div class="form__control">
+	        <span class="form__button" id="calculate-form-btn" (click)="passengerRegistration(
+	        	firstName.value,
+	        	lastName.value,
+	        	dateOfBirth.value,
+	        	email.value,
+	        	'+' + country.value + phone.value
+	        )">Registrar</span>
+	    </div>
+	</form>
+</div>
