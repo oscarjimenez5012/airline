@@ -8,16 +8,11 @@ import {CountriesService} from "../../../services/countries.service";
 import * as PassengerActions from "../../../actions/passenger.action"
 
 import {Countries} from "../../../interfaces/countries";
-import {Passenger} from "../../../interfaces/passenger";
+import {Passenger, AppState} from "../../../interfaces/passenger";
 
 import {Router} from "@angular/router";
 
 import { AddPassenger } from '../../../actions/passenger.action';
-
-
-
-import { PassengerService } from '../../../Services/passenger.service';
-
 
 
 @Component({
@@ -27,12 +22,16 @@ import { PassengerService } from '../../../Services/passenger.service';
 })
 export class PassengerFormComponent implements OnInit {
   countries$;
+  passengers$;
   phoneNumber: any;
   constructor(private fb: FormBuilder, 
               private countriesService: CountriesService,
               private store: Store<Countries>,
-              private router : Router 
+              private storePassengers: Store<AppState>,
+              private router : Router,
+
               ) { 
+              this.passengers$ = storePassengers.select('passengers');
   }
 
   ngOnInit() {
@@ -59,6 +58,10 @@ export class PassengerFormComponent implements OnInit {
       email: string,
       phoneNumber: string) {
       this.store.dispatch(new AddPassenger({ firstName, lastName, dateOfBirth, email, phoneNumber }));
+      this.passengerForm.get('firstName').reset();
+      this.passengerForm.get('lastName').reset();
+      this.passengerForm.get('dateOfBirth').reset();
 
+      
   }
 }

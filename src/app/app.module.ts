@@ -24,7 +24,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AppRoutingModule } from './app-routing.module';
 
 
-import { PassengerService } from './services/passenger.service';
 import { CountriesService } from './services/countries.service';
 import { passengerReducer } from './reducers/passenger.reducer';
 import { messageReducer } from './reducers/passenger.reducer';
@@ -34,6 +33,7 @@ import { AppComponent } from './app.component';
 import { PassengerComponent } from './pages/passenger/passenger.component';
 import { PassengerFormComponent } from './components/passenger/passenger-form/passenger-form.component';
 import { PassengerResumeComponent } from './components/passenger/passenger-resume/passenger-resume.component';
+import { PassengerMessageComponent } from './components/passenger/passenger-message/passenger-message.component';
 
 const NGRX_IMPORTS = [
   StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
@@ -46,7 +46,8 @@ const NGRX_IMPORTS = [
     AppComponent,
     PassengerComponent,
     PassengerFormComponent,
-    PassengerResumeComponent
+    PassengerResumeComponent,
+    PassengerMessageComponent
   ],
   imports: [
     BrowserModule,

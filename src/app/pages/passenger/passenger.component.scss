@@ -5,14 +5,13 @@
 	display: grid;
 	grid-template-columns:  [start passenger-form-start passenger-resume-start] 1fr 
 							[passenger-form-end passenger-resume-end end];
-	grid-gap: 1.5rem;	
+	grid-gap: 1rem;	
 
 	.passenger-page__item1 {
-		margin: 2em;
+		margin: 0;
 	}
-
 	.passenger-page__item2 {
-		margin: 2em;
+		margin: 0;
 	}
 
 	@media screen and (min-width: $small-min-breakpoint) and (max-width: $small-max-breakpoint) {
@@ -23,11 +22,11 @@
 		grid-gap: 1.5rem;	
 
 		.passenger-page__item1 {
-			margin: 2em;
+			margin: 0;
 		}
 
 		.passenger-page__item2 {
-			margin: 2em;
+			margin: 0;
 		}
 	}
 

@@ -1,10 +1,9 @@
 @import "../../../../assets/scss/colors";
 @import "../../../../assets/scss/breakpoints";
 /******************************passenger SECTION***********************************/
-
-
-/*passenger HEADER*/
-
+.is-hidden {
+    display: none;
+}
 .passenger {
     padding: 3%;
     margin: auto;
@@ -14,6 +13,13 @@
     .passenger__heading {
         border-bottom: 1px solid #CACACA;
         margin-left: 15px;
+        padding-bottom: 5px;
+        font-size: 2em;
+    }
+
+    .passenger__subheading {
+        border-bottom: 1px solid #CACACA;
+        margin: 30px 15px 15px 15px;
         padding-bottom: 5px;
         font-size: 2em;
     }
@@ -42,12 +48,12 @@
                     min-width: 0;
                     height: 42px;
                     &.is-invalid {
-                        border: 1px solid red;
+                        border: 1px solid $background-primary-color;
                     }
                 }
 
                 .form__icon {
-                    background-color: gray;
+                    background-color: $background-primary-color;
                     padding: .6rem .8rem .5rem;
                     font-size: 1.5em;
                     height: 42px;
@@ -88,12 +94,17 @@
                 text-transform: none;
                 text-decoration: none;
                 letter-spacing: 1px;
-                background-color: $orange;
+                background-color: $background-primary-color;
                 display: inline-block;
                 margin-top: 15px;
                 border-radius: 5px;
                 cursor: pointer;
                 width: 100%;
+
+                &:disabled {
+                    background-color: lighten( $background-primary-color, 20% );
+                    cursor: not-allowed;
+                }
             }
         }
         .form__group {
@@ -104,31 +115,43 @@
 
                 .form__input--container {
                     .form__input {
-                        max-width: 110px;
+                        max-width: 8.5rem;
                         padding: 5px 10px;
                         &--country {
-                            max-width: 110px;
+                            max-width: 8.5rem;
                             margin-top: 4px;
                             padding: 5px 0;
                         }
                     }
                     @media screen and (min-width: $small-min-breakpoint) and (max-width: $small-max-breakpoint) {
                         .form__input {
-                            max-width: 130px;
+                            max-width: 100px;
                             &--country {
-                                max-width: 80px;
+                                max-width: 110px;
                                 margin-top: 4px;
-                                padding: 5px 20px;
+                                padding: 5px 0;
                             }
                         }
                     }
-                     @media screen and (min-width: $medium-min-breakpoint) and (max-width: $medium-max-breakpoint) {
+                    @media screen and (min-width: $medium-min-breakpoint) and (max-width: $medium-max-breakpoint) {
                         .form__input {
                             max-width: 140px;
                             &--country {
                                 max-width: 140px;
                                 margin-top: 4px;
                                 padding: 5px 20px;
+                            }
+                        }
+                    }
+
+                    @media screen and (min-width: $large-min-breakpoint) {
+                        .form__input {
+                            max-width: 170px;
+                            min-width: 140px;
+                            &--country {
+                                max-width: 140px;
+                                margin-top: 4px;
+                                padding: 5px 10px;
                             }
                         }
                     }

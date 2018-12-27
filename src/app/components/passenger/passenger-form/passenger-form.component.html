@@ -1,6 +1,6 @@
 <div class="passenger">
 	<h1 class="passenger__heading">Traveler information</h1>
-	<form [formGroup]="passengerForm" class="passenger__form">
+	<form [formGroup]="passengerForm" class="passenger__form" autocomplete="off">
 	  
 	    <div class="form__control">
 	        <label class="form__label" for="firstName">First Name</label>
@@ -54,7 +54,9 @@
 			        </div>
 		        </div>
         </div>
-        <div class="form__control">
+        <div [class.is-hidden]="(passengers$ | async)?.length !== 0">
+        	<h2 class="passenger__subheading">Contact information</h2>
+        	<div class="form__control">
 	            <label class="form__label" for="email">Email</label>
 	            <div class="form__input--container">
 
@@ -73,50 +75,58 @@
 
 			        </div>
 		        </div>
-        </div>
-        <div #phoneNumber formGroupName="phoneNumber" class="form__control form__group">
-        	<div class="form__item--inline">
-	            <label class="form__label" for="country">Country</label>
-	            <div class="form__input--container">
-	            	<select #country 
-	            	formControlName="country" 
-	            	class="form__input form__input--country" 
-	            	id="country">
-			            <option *ngFor="let item of countries$" [value]="item.phone_code" [ngValue]="item.phone_code">{{item.name}}</option>
-			        </select>
-		            <fa class="form__icon" name="flag"></fa>
-		            <div *ngIf="passengerForm.get('phoneNumber.country').invalid &&
-				        passengerForm.get('phoneNumber.country').touched" class="required-field">
-				        <span *ngIf="passengerForm.get('phoneNumber.country').errors?.required" >Country is Required</span>
+	        </div>
+	        <div #phoneNumber formGroupName="phoneNumber" class="form__control form__group">
+	        	<div class="form__item--inline">
+		            <label class="form__label" for="country">Country</label>
+		            <div class="form__input--container">
+		            	<select #country 
+		            	formControlName="country" 
+		            	class="form__input form__input--country" 
+		            	id="country">
+				            <option *ngFor="let item of countries$" [value]="item.phone_code" [ngValue]="item.phone_code">{{item.name}}</option>
+				        </select>
+			            <fa class="form__icon" name="flag"></fa>
+			            <div *ngIf="passengerForm.get('phoneNumber.country').invalid &&
+					        passengerForm.get('phoneNumber.country').touched" class="required-field">
+					        <span *ngIf="passengerForm.get('phoneNumber.country').errors?.required" >Country is Required</span>
+				        </div>
 			        </div>
-		        </div>
-            </div>
-        	<div class="form__item--inline">
-	            <label class="form__label" for="phone">Phone</label>
-	            <div class="form__input--container">
-		            <input #phone [class.is-invalid]="passengerForm.get('phoneNumber.phone').invalid &&
-		        passengerForm.get('phoneNumber.phone').touched" 
-		        formControlName="phone" 
-		        type="number" 
-		        placeholder="Your Phone" 
-		        class="form__input" 
-		        id="phone" >
-		            <fa class="form__icon" name="phone"></fa>
-		            <div *ngIf="passengerForm.get('phoneNumber.phone').invalid &&
-				        passengerForm.get('phoneNumber.phone').touched" class="required-field">
-				        <span *ngIf="passengerForm.get('phoneNumber.phone').errors?.required" >Phone is Required</span>
-			        </div>
-        		</div>
-            </div> 
+	            </div>
+	        	<div class="form__item--inline">
+		            <label class="form__label" for="phone">Phone</label>
+		            <div class="form__input--container">
+			            <input #phone [class.is-invalid]="passengerForm.get('phoneNumber.phone').invalid &&
+			        passengerForm.get('phoneNumber.phone').touched" 
+			        formControlName="phone" 
+			        type="number" 
+			        placeholder="Your Phone" 
+			        class="form__input" 
+			        id="phone" >
+			            <fa class="form__icon" name="phone"></fa>
+			            <div *ngIf="passengerForm.get('phoneNumber.phone').invalid &&
+					        passengerForm.get('phoneNumber.phone').touched" class="required-field">
+					        <span *ngIf="passengerForm.get('phoneNumber.phone').errors?.required" >Phone is Required</span>
+				        </div>
+	        		</div>
+	            </div> 
+	        </div>
         </div>
+        
 	    <div class="form__control">
-	        <span class="form__button" id="calculate-form-btn" (click)="passengerRegistration(
+	        <button [disabled]="!passengerForm.valid" 
+	        class="form__button"
+	        type="submit" 
+	        aria-labelledby="register-button"
+ 			id="register-button"
+	        (click)="passengerRegistration(
 	        	firstName.value,
 	        	lastName.value,
 	        	dateOfBirth.value,
 	        	email.value,
 	        	'+' + country.value + phone.value
-	        )">Registrar</span>
+	        )" >Registrar</button>
+	        <input type="hidden" name="register-button" value="true">
 	    </div>
 	</form>
 </div>

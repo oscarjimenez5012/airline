@@ -1,0 +1,18 @@
+<div *ngIf="(messages | async)?.length !== 0" class=" alert alert-success">
+	<div class="message__container" *ngFor="let message of messages | async; let i=index " >
+		<div [ngSwitch]="message.type">
+		  <article *ngSwitchCase="'success'">
+		  	<div class="message message--green">
+			  <div class="message__icon"></div>
+			  <div class="message__content">
+			    <p class="message__type">{{message.type | uppercase}}</p>
+			    <p class="message__message">{{message.Message}}</p>
+			  </div>
+			  <div class="message__close">
+	            <fa class="message__button" style="" name="close" (click)= "deleteMessage(i)"></fa>
+			  </div>
+			</div>
+		  </article>
+		</div>
+	</div>
+</div>
